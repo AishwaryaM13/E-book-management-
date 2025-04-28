@@ -44,6 +44,11 @@ public class EBookManager {
         books.add(new Book("Fahrenheit 451", "Ray Bradbury", 158, 7.99));
         books.add(new Book("The Picture of Dorian Gray", "Oscar Wilde", 254, 10.99));
 }
+    public void addBook(String title, String author, int numberOfPages, double price) {
+        Book newBook = new Book(title, author, numberOfPages, price);
+        books.add(newBook);
+        System.out.println("Book added: " + newBook);
+    }
 public void displayBooks() {
         if (books.isEmpty()) {
             System.out.println("No books available.");
@@ -57,5 +62,19 @@ public void displayBooks() {
     public static void main(String[] args) {
         EBookManager manager = new EBookManager();
    manager.displayBooks();
-       }
+ Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter book title:");
+        String title = scanner.nextLine();
+        System.out.println("Enter book author:");
+        String author = scanner.nextLine();
+        System.out.println("Enter number of pages:");
+        int numberOfPages = scanner.nextInt();
+        System.out.println("Enter book price:");
+        double price = scanner.nextDouble();
+
+        manager.addBook(title, author, numberOfPages, price);
+        manager.displayBooks();
+    }
 }
+
+		
